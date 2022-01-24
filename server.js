@@ -12,7 +12,10 @@ var bodyparser = require('body-parser');
 app.use(express.json());
 require('dotenv').config()
 app.use('/', routes);
-
+app.route('/')
+  .get(function (req, res) {
+    res.sendFile(process.cwd() + '/index.html');
+});
 
 
 mongoose.connect(
