@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
+
 const helmet = require('helmet');
 const compression = require('compression');
+app.use(helmet());
+
 app.use(compression());
 const routes = require('./routes/plug');
 const mongoose = require('mongoose');
@@ -13,7 +16,7 @@ app.route('/')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/index.html');
 });
-app.use(helmet());
+
 
 mongoose.connect(
     process.env.MONGODB_URI,
