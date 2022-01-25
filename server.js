@@ -12,10 +12,7 @@ var bodyparser = require('body-parser');
 app.use(express.json());
 require('dotenv').config()
 app.use('/', routes);
-app.route('/')
-  .get(function (req, res) {
-    res.sendFile(process.cwd() + '/index.html');
-});
+
 
 
 mongoose.connect(
@@ -37,4 +34,8 @@ mongoose.connect(
 app.use(bodyparser.json);
 const listener = app.listen(process.env.PORT || 5000, () => {
     console.log('Your app is listening on port ' + listener.address().port)
+});
+app.route('/')
+  .get(function (req, res) {
+    res.sendFile(process.cwd() + '/index.html');
 });
