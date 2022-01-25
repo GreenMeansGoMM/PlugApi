@@ -21,12 +21,9 @@ app.route('/')
 mongoose.connect(
     process.env.MONGODB_URI,
     {
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-      replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+      
+      //server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+      //replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
     },
     function (err) {
       if (err) return console.log("Error: ", err);
